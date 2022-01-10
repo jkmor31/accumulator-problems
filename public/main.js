@@ -32,9 +32,13 @@ results on the index page in the browser.
 
 
 
-
-
-
+const sum = (arr) => {
+    if (!arr || arr.length == 0) {
+      return 0;
+    } else {
+      return arr.reduce((acc, curr) => acc + curr);
+    }
+  };
 
 
 
@@ -50,9 +54,10 @@ Example: if you pass it "abc" then it should return "aabbcc"
 
 
 
-
-
-
+function doubleLetters(str) {
+    let newStr = str.split('').map((char) => char + char);
+    return newStr.join('');
+}
 
 
 
@@ -68,10 +73,10 @@ Example: if you pass it [1,2,3] then it should return [2,4,6]
 */
 
 
-
-
-
-
+function doubleNumbers(arr) {
+    let newArr = arr.map((num) => num + num);
+    return newArr;
+}
 
 
 
@@ -89,12 +94,10 @@ Examples:
 - if you call multiplyNumbers([1,2,3], 5) you'd get [5,10,15]
 */
 
-
-
-
-
-
-
+function multiplyNumbers(arr, mult) {
+    let newArr = arr.map((num) => num * mult);
+    return newArr;
+}
 
 
 
@@ -111,11 +114,14 @@ NOTE: you can assume each input will be the same length
 */
 
 
-
-
-
-
-
+function interleave(arr1, arr2) {
+    let newArr = [];
+    for (let i = 0; i < arr1.length; i++) {
+        newArr.push(arr1[i]);
+        newArr.push(arr2[i]);
+    }
+    return newArr;
+}
 
 
 
@@ -130,9 +136,13 @@ Write function named createRange that will take a number and a default value and
 Example: if you pass it 4 and "Hello" then it should return ["Hello", "Hello", "Hello", "Hello"]
 */
 
-
-
-
+function createRange(num, value) {
+    let arr = [];
+    for (let i = 0; i < num; i++) {
+        arr.push(value);
+    }
+    return arr;
+}
 
 
 
@@ -150,9 +160,14 @@ If you pass it ["quick", "brown", "fox"] then it should return { "quick": 0, "br
 */
 
 
-
-
-
+function flipArray(arr) {
+    let newArr = [];
+    for (let i = 0; i <arr.length; i++) {
+        newArr.push([arr[i], i]);
+    }
+    let obj = Object.fromEntries(newArr);
+    return obj;
+}
 
 
 
@@ -170,7 +185,10 @@ If you pass it [[2014, "Horse"], [2015, "Sheep"]] then it should return { 2014: 
 */
 
 
-
+function arraysToObject(arr) {
+    let obj = Object.fromEntries(arr);
+    return obj;
+}
 
 
 
@@ -189,11 +207,13 @@ Example:
 If you pass it "hello" then it should return "olleh"
 */
 
-
-
-
-
-
+function reverseString(str) {
+    let newArr = [];
+    for (let i = str.length; i >= 0; i--){
+        newArr.push(str[i]);
+    }
+    return newArr.join('');
+}
 
 
 
@@ -215,7 +235,16 @@ If you pass it "heehaw" then it should return false because "hee" doesn't equal 
 */
 
 
-
+function repeats(str) {
+    if (str.length % 2 == 1) {return false;}
+    else {
+    let half = str.length / 2;
+    let str1 = str.substr(0, half);
+    let str2 = str.substr(half);
+    if (str1 == str2) {return true;}
+    else {return false;}
+    }
+}
 
 
 
@@ -234,7 +263,15 @@ If you pass it "abcdef" then it should return "ace" because those represent ever
 */
 
 
-
+function everyOther(str) {
+    let arr = str.split('');
+    let newArr = [];
+    for (let i = 0; i <arr.length; i++) {
+        newArr.push(arr[i]);
+        i++;
+    }
+    return newArr.join('');
+}
 
 
 
@@ -254,7 +291,18 @@ If you pass "aba" it should return false
 */
 
 
-
+function allEqual(str) {
+    let arr =str.split('');
+    for (let i = 0; i <arr.length; i++) {
+        if (arr[i] !== arr[i + 1]){
+            return false;
+            break;
+        } else {
+            return true;
+            continue;
+        }
+    }
+}
 
 
 
